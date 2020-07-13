@@ -128,9 +128,19 @@ $(document).ready(function(){
 
 
     // Prepare the preview for profile picture
-    $("#wizard-picture").change(function(){
-        readURL(this);
+    $("#acte-naissance-picture").change(function(){
+        readURL(this, '#acte-naissance');
     });
+
+    $("#certificat-picture").change(function(){
+        readURL(this, '#certificat');
+    });
+
+    $("#carte-identite-picture").change(function(){
+        readURL(this, '#carte-identite');
+    });
+
+
 
     $('[data-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
@@ -158,12 +168,12 @@ $(document).ready(function(){
 
  //Function to show image before upload
 
-function readURL(input) {
+function readURL(input, id) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+            $(id).attr('src', e.target.result).fadeIn('slow');
         }
         reader.readAsDataURL(input.files[0]);
     }

@@ -19,17 +19,18 @@
     <link href="{{asset('bootstrap-wizard/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{asset('bootstrap-wizard/css/material-bootstrap-wizard.css')}}" rel="stylesheet" />
 
-    <link href="{{asset('bootstrap-wizard/css/demo.css')}}" rel="stylesheet" />
-        
+    <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" 
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet">
+
 
 </head>
 
 
-
-
 <body>
-
-
 
 <!--div class="container">
     <div class="row justify-content-center">
@@ -115,13 +116,12 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="purple" id="wizardProfile">
                     <form action="" method="">
-                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
                         <div class="wizard-header">
-                            <h3 class="wizard-title">
+                            <h3 class="wizard-title comfortaa">
                                Création de compte
                             </h3>
-                            <h5>This information will let us know more about you.</h5>
+                            <h5 class="comfortaa">veuillez renseigner les informations correctes</h5>
                         </div>
 
                         <div class="wizard-navigation">
@@ -135,16 +135,16 @@
                         <div class="tab-content">
 
                             <div class="tab-pane" id="about">
-                                <div class="row">
 
-                                    <h4 class="info-text">
-                                         Let's start with the basic information (with validation)</h4>
+                                <h4 class="info-text">  </h4>
+
+                                <div class="row">
 
                                     <div class="col-sm-4 col-sm-offset-1">
                                         <div class="picture-container">
                                             <div class="picture">
                                                 <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
-                                                    class="picture-src" id="wizardPicturePreview" title=""/>
+                                                    class="picture-src" id="" title=""/>
                                                 <!--input type="file" id="wizard-picture"-->
                                             </div>
                                         </div>
@@ -153,47 +153,77 @@
                                     <div class="col-sm-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                <i class="material-icons">face</i>
+                                                <i class="material-icons">person</i>
                                             </span>
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Nom <small>(required)</small></label>
+                                                <label class="control-label">Nom <small>(obligatoire)</small></label>
                                                 <input name="firstname" type="text" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                <i class="material-icons">record_voice_over</i>
+                                                <i class="material-icons">person</i>
                                             </span>
                                             <div class="form-group label-floating">
-                                              <label class="control-label">Prénom <small>(required)</small></label>
+                                              <label class="control-label">Prénom <small>(obligatoire)</small></label>
                                               <input name="lastname" type="text" class="form-control">
                                             </div>
                                         </div>
                                     </div>
 
-
                                     <div class="row mx-auto">
                                         <div class="col-sm-5">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="material-icons"></i>
+                                                    <i class="material-icons">place</i>
                                                 </span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Lieu de naissance <small>(required)</small></label>
+                                                    <label class="control-label">Lieu de naissance <small>(obligatoire)</small></label>
                                                     <input name="email" type="texre" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Sexe <small>(obligatoire)</small></label>
+                                                    <select class="form-control selectpicker" 
+                                                        data-style="btn btn-link" id="exampleFormControlSelect1">
+                                                        <option>Masculin</option>
+                                                        <option>Féminin</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mx-auto">
                                         <div class="col-sm-5">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="material-icons"></i>
+                                                    <i class="material-icons">phone</i>
                                                 </span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Sexe <small>(required)</small></label>
-                                                    <input name="email" type="email" class="form-control">
+                                                    <label class="control-label">telephone <small>(obligatoire)</small></label>
+                                                    <input name="telephone" type="number" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">email</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Email</label>
+                                                    <input name="telephone" type="number" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -204,78 +234,79 @@
                             </div>
 
                             <div class="tab-pane" id="account">
-                                <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+
+                                <h4 class="info-text mt-4"></h4>
+
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
+
                                         <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Design">
-                                                <div class="icon">
-                                                    <i class="fa fa-pencil"></i>
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                        class="picture-src" id="acte-naissance" title=""/>
+                                                    <input type="file" id="acte-naissance-picture">
                                                 </div>
-                                                <h6>Design</h6>
+                                                <h6>Acte de naissance</h6>
                                             </div>
                                         </div>
+
                                         <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Code">
-                                                <div class="icon">
-                                                    <i class="fa fa-terminal"></i>
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                        class="picture-src" id="certificat" title=""/>
+                                                    <input type="file" id="certificat-picture">
                                                 </div>
-                                                <h6>Code</h6>
+                                                <h6>Certificat de nationalité</h6>
                                             </div>
                                         </div>
+
                                         <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Develop">
-                                                <div class="icon">
-                                                    <i class="fa fa-laptop"></i>
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                        class="picture-src" id="carte-identite" title=""/>
+                                                    <input type="file" id="carte-identite-picture">
                                                 </div>
-                                                <h6>Develop</h6>
+                                                <h6>Carte d'identité</h6>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
 
                             <div class="tab-pane" id="address">
+
+                                <h4 class="info-text">  </h4>
+
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="info-text"> Are you living in a nice area? </h4>
-                                    </div>
-                                    <div class="col-sm-7 col-sm-offset-1">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Street Name</label>
-                                            <input type="text" class="form-control">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-sm-7 mx-auto">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Mot de passe</label>
+                                                <input type="password" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Street Number</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">City</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Country</label>
-                                            <select name="country" class="form-control">
-                                                <option disabled="" selected=""></option>
-                                                <option value="Afghanistan"> Afghanistan </option>
-                                                <option value="Albania"> Albania </option>
-                                                <option value="Algeria"> Algeria </option>
-                                                <option value="American Samoa"> American Samoa </option>
-                                                <option value="Andorra"> Andorra </option>
-                                                <option value="Angola"> Angola </option>
-                                                <option value="Anguilla"> Anguilla </option>
-                                                <option value="Antarctica"> Antarctica </option>
-                                                <option value="...">...</option>
-                                            </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Conifirmer mot de passe</label>
+                                                <input type="password" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -285,13 +316,22 @@
 
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Next' />
-                                <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+
+                                <input type='button' class='btn btn-next btn-fill btn-primary btn-wd' 
+                                    name='next' value='Suivant' />
+                                
+                                <input type='button' class='btn btn-finish btn-fill btn-primary btn-wd' 
+                                    name='finish' value='Valider' />
+
                             </div>
 
                             <div class="pull-left">
-                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' 
+                                    name='previous' value='Précédent' />
+                            
                             </div>
+
                             <div class="clearfix"></div>
                         </div>
 
@@ -301,6 +341,8 @@
         </div>
     </div><!-- end row -->
 </div> <!--  big container -->
+
+
 
 
 

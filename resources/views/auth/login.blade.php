@@ -99,95 +99,90 @@
         </div-->
 
 
-        <div class="container ">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-8 mx-auto my-auto ">
-                    <form class="form" method="" action="">
-                        <div class="card card-login card-hidden">
+        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto mt-5">
+            <form class="form" method="POST" action="{{ route('login') }}">
+                <div class="card card-login card-hidden">
 
-                            <div class="card-header card-header-rose text-center">
-                                <h4 class="card-title">Login</h4>
-                                <div class="social-line">
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="card-header card-header-primary text-center">
+                        <h4 class="card-title comfortaa">Connexion</h4>
+                    </div>
 
-                            <div class="card-body mt-5">
+                    @csrf
 
-                                <span class="bmd-form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="material-icons">face</i>
-                                            </span>
-                                        </div>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <div class="card-body mt-4">
 
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </span>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
 
-                                <span class="bmd-form-group">
-                                    <div class="input-group mt-4">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="material-icons">email</i>
-                                            </span>
-                                        </div>
-
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </span>
-
-                                <div class="form-check mt-4">
-                                    <label class="form-check-label mx-auto"> 
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" 
-                                            {{ old('remember') ? 'checked' : '' }}>Se souvenir de moi
-
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">person</i>
+                                    </span>
                                 </div>
 
+                                <input id="email" type="text" class="form-control
+                                    @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" 
+                                    required autocomplete="email" autofocus placeholder="Ideniiant">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
                             </div>
+                        </span>
 
-                            <div class="card-footer justify-content-center">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                        <span class="bmd-form-group">
+                            <div class="input-group mt-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock</i>
+                                    </span>
+                                </div>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                <input id="password" type="password" 
+                                    class="form-control @error('password') is-invalid @enderror" name="password" 
+                                    required autocomplete="current-password" placeholder="Mot de passe">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+                        </span>
 
-                        </div>
-                    </form>
+                        <span class="bmd-form-group">
+                            <div class="form-check mt-5 ml-4">
+                                <label class="form-check-label mx-auto"> 
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" 
+                                        {{ old('remember') ? 'checked' : '' }}>Se souvenir de moi
+
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </span>
+
+                    </div>
+
+                    <div class="card-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Se connecter') }}
+                        </button>
+
+                        @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Mot de passe oublié ?') }}
+                            </a>
+                        @endif
+                    </div>
+
                 </div>
-            </div>
+            </form>
         </div>
-
 
 
 
