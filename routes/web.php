@@ -20,6 +20,22 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::group(['middleware' => 'auth'], function() {
+
+    Route::group(['prefix' => 'app'], function() {
+
+        Route::get('dashboard', 'DashboardController@accueil')->name("admin_accueil");
+
+        Route::get('tracteurs', 'DashboardController@allTractor')->name("admin_allTractor");
+        Route::get('add-tracteur', 'DashboardController@addTractor')->name("admin_addTractor");
+
+    });
+
+//});
+
+
+
+
+
+Auth::routes();
