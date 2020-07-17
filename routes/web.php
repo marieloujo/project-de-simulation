@@ -29,13 +29,15 @@ Route::get('/', function () {
 
         Route::get('tracteurs', 'DashboardController@allTractor')->name("admin_allTractor");
         Route::get('add-tracteur', 'DashboardController@addTractor')->name("admin_addTractor");
+     //   Route::resource('/tractor','AddTractorController');
+
 
     });
 
 //});
-
-
-
+//Route::resource('/tractors', 'DashboardController');
+Route::resource('/tractors','AddTractorController');
+//Route::get('/tractor/{{id}}', 'AddTractorController@destroy')->name("ad");
 
 
 Auth::routes();

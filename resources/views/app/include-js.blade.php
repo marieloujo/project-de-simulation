@@ -215,6 +215,36 @@
         });
       });
     });
+
+    $('.supprimer').click(function () {
+      
+        var id = $(this).attr('data-id');
+        var url = $(this).attr('data-url');
+
+        $("#deleteForm", 'input').val(id);
+        $("#deleteForm").attr("action", url);
+
+       
+    });
+
+    $('.edit').click(function () {
+      
+        var id = $(this).attr('data-id');
+        var url = $(this).attr('data-url');
+        var type = $(this).attr('data-type');
+        var modele = $(this).attr('data-modele');
+        var marque = $(this).attr('data-marque');
+
+       // $("#updateForm", 'input').val(id);
+        $("#updateForm").attr("action", url);
+        $("#type").attr("value", type);
+        $("#modele").attr("value", modele);
+        $("#marque").attr("value", marque);
+
+    
+       
+    });
+
   </script>
 
 

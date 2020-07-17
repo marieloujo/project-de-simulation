@@ -22,14 +22,14 @@
 
                     <p class="card-category">Tracteurs</p>
 
-                    <h3 class="card-title">49
+                    <h3 class="card-title">{{$nombre}}
                     </h3>
                 </div>
 
                 <div class="card-footer">
                     <div class="stats">
                         <i class="material-icons text-danger">warning</i>
-                        <a href="#pablo">Get More Space...</a>
+                        <a href="#pablo"></a>
                     </div>
                 </div>
 
@@ -48,12 +48,12 @@
                 
                     <p class="card-category">En location</p>
 
-                    <h3 class="card-title">34</h3>
+                    <h3 class="card-title"></h3>
                 </div>
 
                 <div class="card-footer">
                     <div class="stats">
-                        <i class="material-icons">date_range</i> Last 24 Hours
+                        <i class="material-icons">date_range</i> 
                     </div>
                 </div>
 
@@ -68,11 +68,11 @@
                 <i class="material-icons">info_outline</i>
                 </div>
                 <p class="card-category">Rendus</p>
-                <h3 class="card-title">75</h3>
+                <h3 class="card-title"></h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
-                <i class="material-icons">local_offer</i> Tracked from Github
+                <i class="material-icons">local_offer</i> 
                 </div>
             </div>
             </div>
