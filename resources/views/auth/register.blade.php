@@ -5,16 +5,20 @@
 
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, 
+        shrink-to-fit=no' name='viewport' />
 
 
-  <title>
-    Material Dashboard by Creative Tim
-  </title>
 
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, 
-    shrink-to-fit=no' name='viewport' />
+    <title>
+        Ola Tractor | Inscription
+    </title>
+
+        
 
     <link href="{{asset('bootstrap-wizard/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{asset('bootstrap-wizard/css/material-bootstrap-wizard.css')}}" rel="stylesheet" />
@@ -22,9 +26,7 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" 
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" 
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Montserrat|Material+Icons" />
 
 
 </head>
@@ -108,7 +110,6 @@
 
 
 
-<!--   Big container   -->
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
@@ -143,7 +144,7 @@
                                     <div class="col-sm-4 col-sm-offset-1">
                                         <div class="picture-container">
                                             <div class="picture">
-                                                <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                <img src="{{asset('img/default-avatar.png')}}" 
                                                     class="picture-src" id="" title=""/>
                                                 <!--input type="file" id="wizard-picture"-->
                                             </div>
@@ -173,14 +174,17 @@
                                     </div>
 
                                     <div class="row mx-auto">
+
                                         <div class="col-sm-5">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">place</i>
                                                 </span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Lieu de naissance <small>(obligatoire)</small></label>
-                                                    <input name="email" type="texre" class="form-control">
+                                                    <label class="control-label">Lieu de naissance 
+                                                        <small>(obligatoire)</small>
+                                                    </label>
+                                                    <input name="naissance" type="texte" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -204,13 +208,16 @@
                                     </div>
 
                                     <div class="row mx-auto">
+
                                         <div class="col-sm-5">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">phone</i>
                                                 </span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">telephone <small>(obligatoire)</small></label>
+                                                    <label class="control-label">telephone 
+                                                        <small>(obligatoire)</small>
+                                                    </label>
                                                     <input name="telephone" type="number" class="form-control">
                                                 </div>
                                             </div>
@@ -223,7 +230,7 @@
                                                 </span>
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Email</label>
-                                                    <input name="telephone" type="number" class="form-control">
+                                                    <input name="email" type="email" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -231,6 +238,7 @@
                                     </div>
 
                                 </div>
+
                             </div>
 
                             <div class="tab-pane" id="account">
@@ -243,9 +251,10 @@
                                         <div class="col-sm-4">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                    <img src="" 
                                                         class="picture-src" id="acte-naissance" title=""/>
-                                                    <input type="file" id="acte-naissance-picture">
+                                                    <input type="file" name="acte_naissance" id="acte-naissance-picture" 
+                                                        accept="image/*">
                                                 </div>
                                                 <h6>Acte de naissance</h6>
                                             </div>
@@ -254,9 +263,10 @@
                                         <div class="col-sm-4">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                    <img src="" 
                                                         class="picture-src" id="certificat" title=""/>
-                                                    <input type="file" id="certificat-picture">
+                                                    <input type="file" name="certificat" id="certificat-picture" 
+                                                        accept="image/*">
                                                 </div>
                                                 <h6>Certificat de nationalité</h6>
                                             </div>
@@ -265,9 +275,10 @@
                                         <div class="col-sm-4">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{{asset('bootstrap-wizard/img/default-avatar.png')}}" 
+                                                    <img src="" 
                                                         class="picture-src" id="carte-identite" title=""/>
-                                                    <input type="file" id="carte-identite-picture">
+                                                    <input type="file" name="carte_identite" id="carte-identite-picture"
+                                                        accept="image/*">
                                                 </div>
                                                 <h6>Carte d'identité</h6>
                                             </div>
@@ -340,7 +351,7 @@
             </div> <!-- wizard container -->
         </div>
     </div><!-- end row -->
-</div> <!--  big container -->
+</div> 
 
 
 

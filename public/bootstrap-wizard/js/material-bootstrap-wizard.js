@@ -29,6 +29,7 @@ $(document).ready(function(){
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
 		  rules: {
+
 		    firstname: {
 		      required: true,
 		      minlength: 3
@@ -40,11 +41,38 @@ $(document).ready(function(){
 		    email: {
 		      required: true,
 		      minlength: 3,
-		    }
+            },
+            naissance: {
+                required: true,
+		        minlength: 3,
+            },
+            telephone: {
+                required: true,
+		        minlength: 8,
+            },
+
+
+            acte_naissance: {
+                required: true,
+            },
+            certificat: {
+                required: true,
+            },
+            carte_identite: {
+                required: true,
+            }
+
+
+
         },
 
         errorPlacement: function(error, element) {
             $(element).parent('div').addClass('has-error');
+            $(element).parent('.picture').addClass('border-red');
+            $(element)
+                .parent('.picture')
+                .parent('div')
+                .children('h6').addClass('text-red');
          }
 	});
 
