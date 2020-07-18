@@ -41,6 +41,7 @@ class DashboardController extends Controller
 
     public function addTractor(Request $request)
     {
+        dump($request->input()).die();
 
         //$clientIP = request()->ip();
         $add_trateur = Tracteurs::create([

@@ -34,80 +34,6 @@
 
 <body>
 
-<!--div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div-->
-
 
 
 <div class="container">
@@ -116,13 +42,16 @@
             <!--      Wizard container        -->
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="purple" id="wizardProfile">
-                    <form action="" method="">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
+
+                        @csrf
 
                         <div class="wizard-header">
                             <h3 class="wizard-title comfortaa">
                                Création de compte
                             </h3>
                             <h5 class="comfortaa">veuillez renseigner les informations correctes</h5>
+                        
                         </div>
 
                         <div class="wizard-navigation">
@@ -152,24 +81,49 @@
                                     </div>
 
                                     <div class="col-sm-6">
+
                                         <div class="input-group">
+
                                             <span class="input-group-addon">
                                                 <i class="material-icons">person</i>
                                             </span>
+
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Nom <small>(obligatoire)</small></label>
-                                                <input name="firstname" type="text" class="form-control">
+                                                <label class="control-label">Nom et prénoms <small>(obligatoire)</small></label>
+                                                
+                                                <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" 
+                                                    value="{{ old('name') }}" autocomplete="name" autofocus>
+
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
+
                                         </div>
 
                                         <div class="input-group">
+
                                             <span class="input-group-addon">
                                                 <i class="material-icons">person</i>
                                             </span>
+
                                             <div class="form-group label-floating">
-                                              <label class="control-label">Prénom <small>(obligatoire)</small></label>
-                                              <input name="lastname" type="text" class="form-control">
+                                                <label class="control-label">Age <small>(obligatoire)</small></label>
+                                                
+                                                <input name="age" type="number" class="form-control @error('age') is-invalid @enderror" 
+                                                    value="{{ old('age') }}" autocomplete="age" min="23" max="100">
+                                                
+                                                @error('age')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            
                                             </div>
+
                                         </div>
                                     </div>
 
@@ -177,15 +131,28 @@
 
                                         <div class="col-sm-5">
                                             <div class="input-group">
+
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">place</i>
                                                 </span>
+
                                                 <div class="form-group label-floating">
+
                                                     <label class="control-label">Lieu de naissance 
                                                         <small>(obligatoire)</small>
                                                     </label>
-                                                    <input name="naissance" type="texte" class="form-control">
+
+                                                    <input name="lieu_naissance" type="texte" class="form-control @error('lieu_naissance') is-invalid @enderror" 
+                                                        value="{{ old('lieu_naissance') }}" autocomplete="lieu_naissance">
+
+                                                    @error('naissance')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
                                                 </div>
+
                                             </div>
                                         </div>
 
@@ -196,11 +163,12 @@
                                                 </span>
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Sexe <small>(obligatoire)</small></label>
-                                                    <select class="form-control selectpicker" 
-                                                        data-style="btn btn-link" id="exampleFormControlSelect1">
-                                                        <option>Masculin</option>
-                                                        <option>Féminin</option>
+
+                                                    <select class="form-control selectpicker" name="sexe">
+                                                        <option value="Masculin">Masculin</option>
+                                                        <option value="Féminin">Féminin</option>
                                                     </select>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -211,27 +179,51 @@
 
                                         <div class="col-sm-5">
                                             <div class="input-group">
+
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">phone</i>
                                                 </span>
+
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">telephone 
                                                         <small>(obligatoire)</small>
                                                     </label>
-                                                    <input name="telephone" type="number" class="form-control">
+
+                                                    <input name="telephone" type="number" class="form-control @error('telephone') is-invalid @enderror" 
+                                                        value="{{ old('telephone') }}" autocomplete="telephone">
+                                                
+                                                    @error('telephone')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
                                                 </div>
+
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="input-group">
+
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">email</i>
                                                 </span>
+
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Email</label>
-                                                    <input name="email" type="email" class="form-control">
+
+                                                    <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" 
+                                                        value="{{ old('email') }}" autocomplete="email">
+                                                
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
                                                 </div>
+
                                             </div>
                                         </div>
 
@@ -265,7 +257,7 @@
                                                 <div class="picture">
                                                     <img src="" 
                                                         class="picture-src" id="certificat" title=""/>
-                                                    <input type="file" name="certificat" id="certificat-picture" 
+                                                    <input type="file" name="certificat_nationalite" id="certificat-picture" 
                                                         accept="image/*">
                                                 </div>
                                                 <h6>Certificat de nationalité</h6>
@@ -296,13 +288,25 @@
                                     <div class="col-md-3"></div>
                                     <div class="col-sm-7 mx-auto">
                                         <div class="input-group">
+
                                             <span class="input-group-addon">
                                                 <i class="material-icons">lock</i>
                                             </span>
+
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Mot de passe</label>
-                                                <input type="password" class="form-control">
+
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                                    value="{{ old('password') }}" name="password" id="password">
+
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -316,7 +320,7 @@
                                             </span>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Conifirmer mot de passe</label>
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" name="password_confirmation" equalTo="#password" required>
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +335,7 @@
                                 <input type='button' class='btn btn-next btn-fill btn-primary btn-wd' 
                                     name='next' value='Suivant' />
                                 
-                                <input type='button' class='btn btn-finish btn-fill btn-primary btn-wd' 
+                                <input type='submit' class='btn btn-finish btn-fill btn-primary btn-wd' 
                                     name='finish' value='Valider' />
 
                             </div>

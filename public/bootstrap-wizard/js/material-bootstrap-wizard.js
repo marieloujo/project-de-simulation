@@ -30,22 +30,25 @@ $(document).ready(function(){
     var $validator = $('.wizard-card form').validate({
 		  rules: {
 
-		    firstname: {
+		    name: {
 		      required: true,
 		      minlength: 3
-		    },
-		    lastname: {
-		      required: true,
-		      minlength: 3
-		    },
+            },
+            
+		    age: {
+		      required: true
+            },
+            
 		    email: {
 		      required: true,
 		      minlength: 3,
             },
-            naissance: {
+
+            lieu_naissance: {
                 required: true,
 		        minlength: 3,
             },
+
             telephone: {
                 required: true,
 		        minlength: 8,
@@ -55,25 +58,38 @@ $(document).ready(function(){
             acte_naissance: {
                 required: true,
             },
-            certificat: {
+            certificat_nationalite: {
                 required: true,
             },
             carte_identite: {
                 required: true,
-            }
+            },
+
+            password: {
+                required: true,
+                minlength: 8,
+            },
 
 
 
         },
 
-        errorPlacement: function(error, element) {
+        highlight: function(element) {
+            $(element).parent('div').removeClass('has-success').addClass('has-danger');
+        },
+
+        success: function(element) {
+            $(element).parent('div').removeClass('has-error').addClass('has-success');
+            $(element).parent('div').children('.material-input').remove();
+            $(element).parent('div').children('.error').remove();
+        },
+
+        errorPlacement : function(error, element) {
+            $(element).parent('div').append(error);
             $(element).parent('div').addClass('has-error');
-            $(element).parent('.picture').addClass('border-red');
-            $(element)
-                .parent('.picture')
-                .parent('div')
-                .children('h6').addClass('text-red');
-         }
+            $(element).parent('.picture').addClass('error');
+        }
+
 	});
 
     // Wizard Initialization
