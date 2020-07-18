@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'MainController@welcome');
 
 
 
@@ -29,15 +28,14 @@ Route::group(['middleware' => 'auth'], function() {
 
         Route::get('tracteurs', 'DashboardController@allTractor')->name("admin_allTractor");
         Route::post('add-tracteur', 'DashboardController@addTractor')->name("admin_addTractor");
-     //   Route::resource('/tractor','AddTractorController');
 
 
     });
 
 });
-//Route::resource('/tractors', 'DashboardController');
+
+
 Route::resource('/tractors','AddTractorController');
-//Route::get('/tractor/{{id}}', 'AddTractorController@destroy')->name("ad");
 
 
 Auth::routes();

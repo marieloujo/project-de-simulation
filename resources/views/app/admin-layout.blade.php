@@ -230,6 +230,17 @@
 
 
     @include('app.include-js')
+
+
+    @if(Session::has('success'))
+        <span id="message" data-message="{{ Session::get('success') }}"></span>
+        <script>
+            $( document ).ready(function() {
+                md.showNotification('top','right',$('#message').attr('data-message'));
+            });
+        </script>
+    @endif
+
     
 </body>
 

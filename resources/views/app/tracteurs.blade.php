@@ -12,8 +12,12 @@
 
 
         
+
+
+        
         <button type="submit" class="btn btn-primary pull-right mb-5 text-capitalize" 
             data-toggle="modal" data-target="#modal-add">Enregistrer un véhicules</button>
+
 
         <div class="card card-plain">
 
@@ -49,7 +53,7 @@
                                         <i class="material-icons">edit</i>
                                     </a>
                                     
-<a class="btn btn-link btn-danger btn-just-icon supprimer" rel="tooltip" data-toggle="modal"
+                                    <a class="btn btn-link btn-danger btn-just-icon supprimer" rel="tooltip" data-toggle="modal"
                                         data-placement="top" title="Supprimer" data-target="#modal-delete" href="" data-id="{{$value->id}}" data-url="{{ route('tractors.destroy', $value->id) }}">
                                         <i class="material-icons">close</i>
                                     </a>
@@ -68,12 +72,16 @@
 </div>
 
 
+
+
+
+
 <div class="modal fade" tabindex="-1" role="dialog" id="modal-change">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="card ">
 
-                <div class="card-header card-header-rose">
+                <div class="card-header card-header-primary">
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -83,28 +91,28 @@
                 <form action="" method="POST" id="updateForm">
                     
                     <div class="card-body">
-                {{ csrf_field() }}
-               
-              {{method_field('PUT')}}
+                        {{ csrf_field() }}
+                    
+                        {{method_field('PUT')}}
                         <div class="form-group mb-3 mt-3">
-                            <label for="titre" class="bmd-label-floating">Type de tracteur</label>
-                            <input type="text" style="color: green" class="form-control" name="type" id="type" required="true" value="">
+                            <label for="titre" class="bmd-label">Type de tracteur</label>
+                            <input type="text" class="form-control" name="type" id="type" required="true" value="">
                         </div>
 
                         <div class="form-group mb-3 mt-3">
-                            <label for="titre" class="bmd-label-floating">Modèle</label>
-                            <input type="text" style="color: green" class="form-control" name="modele" id="modele" required="true" value="">
+                            <label for="titre" class="bmd-label">Modèle</label>
+                            <input type="text" class="form-control" name="modele" id="modele" required="true" value="">
                         </div>
 
                         <div class="form-group mb-3 mt-3">
-                            <label for="titre" class="bmd-label-floating">Marque</label>
-                            <input type="text" style="color: green" class="form-control" name="marque" id="marque" required="true" value="">
+                            <label for="titre" class="bmd-label">Marque</label>
+                            <input type="text" class="form-control" name="marque" id="marque" required="true" value="">
                         </div>
 
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-rose">Valider</button>
+                        <button type="submit" class="btn btn-fill btn-primary">Valider</button>
                     </div>
 
                 </form>
@@ -119,14 +127,14 @@
         <div class="modal-content">
             <div class="card ">
 
-                <div class="card-header card-header-rose">
+                <div class="card-header card-header-primary">
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="card-title">Ajouter un tracteur</h4>
                 </div>
 
-                <form action="{{route('admin_addTractor')}}" method="GET">
+                <form action="{{route('admin_addTractor')}}" method="POST">
                     
                     <div class="card-body ">
                         {{ csrf_field() }}
@@ -149,7 +157,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-rose">Valider</button>
+                        <button type="submit" class="btn btn-fill btn-primary">Valider</button>
                     </div>
 
                 </form>

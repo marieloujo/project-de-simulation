@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tracteurs;
+use Illuminate\Support\Facades\Session;
 
 //use Illuminate\Http\Request;
 use Larinfo;
@@ -79,10 +80,11 @@ class AddTractorController extends Controller
         $marque = $request->marque;
         $modele = $request->modele;
         Tracteurs::where('id', $id)->update(['type'=>$type, 'marque'=>$marque, 'modele'=>$modele]);
-        $tracteurs = Tracteurs::all();
-  
-      return view('app.tracteurs', compact('tracteurs'), array(
-            'namePage'=>'tracteurs'));
+        
+
+        Session::flash('success', 'Tracteur supprimé avec succès !');
+        return redirect()->back();
+
     }
 
     /**
@@ -96,9 +98,8 @@ class AddTractorController extends Controller
     {
         //Tracteurs::findOrFail($id)->delete();
         Tracteurs::findOrFail($id)->delete();
-           $tracteurs = Tracteurs::all();
-  
-      return view('app.tracteurs', compact('tracteurs'), array(
-            'namePage'=>'tracteurs'));
+
+        Session::flash('success', 'Tracteur supprimé avec succès !');
+        return redirect()->back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Tracteurs;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Larinfo;
 
 
@@ -12,10 +13,9 @@ class DashboardController extends Controller
 {
     //
 
-
     public function __construct()
     {
-       
+        $this->middleware('auth');
     }
 
 
@@ -25,24 +25,28 @@ class DashboardController extends Controller
     {
        $tracteurs =  Tracteurs::all();
        $nombre = $tracteurs->count();
+
         return view('app.index', array(
             'namePage'=>'index'), compact('nombre')
         );
     }
       
 
+
     public function allTractor(Request $request)
     {
         $tracteurs = Tracteurs::all();
-        return view('app.tracteurs', compact('tracteurs'), array(
-            'namePage'=>'tracteurs')
+
+        return view('app.tracteurs', 
+                    compact('tracteurs'), 
+                    array('namePage'=>'tracteurs')
         );
     }
 
+
+
     public function addTractor(Request $request)
     {
-        dump($request->input()).die();
-
         //$clientIP = request()->ip();
         $add_trateur = Tracteurs::create([
             'user_id' => 1,
@@ -50,21 +54,29 @@ class DashboardController extends Controller
             'marque' => $request->marque,
             'modele' =>$request->modele,
         ]);
-        $tracteurs = Tracteurs::all();
+
+        Session::flash('success','Tracteur ajouté avec succès.');
+        return redirect()->route('admin_allTractor');
+
+        /*$tracteurs = Tracteurs::all();
         // return $larinfo = Larinfo::getInfo();
   
-      return view('app.tracteurs', compact('tracteurs'), array(
-            'namePage'=>'tracteurs')
-  );
+        return view('app.tracteurs', compact('tracteurs'), array(
+                'namePage'=>'tracteurs')
+            );*/
     
     }
 
+
+
     public function destroy($id)
     {
- $tracteurs = Tracteurs::findOrFail($id);
+        $tracteurs = Tracteurs::findOrFail($id);
 
         $tracteurs->delete();
-        return "ok";
+
+        Session::flash('success', 'Tracteur supprimé avec succès !');
+        return redirect()->back();
 
     }
 
