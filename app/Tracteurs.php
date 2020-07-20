@@ -19,4 +19,23 @@ class Tracteurs extends Model
     ];
 
 
+
+    public function users_add()
+    {
+        return $this->hasOne('App\User');
+    }
+
+
+    public function users_louer()
+    {
+        return $this->belongsToMany('App\User', 'louer', 'tracteur_id', 'utilisateur_id');
+    }
+
+
+    public function tracking()
+    {
+        return $this->hasMany('App\Modeles\Tracking');
+    }
+
+
 }

@@ -122,7 +122,7 @@
 
                                 <input id="email" type="text" class="form-control
                                     @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" 
-                                    required autocomplete="email" autofocus placeholder="Ideniiant">
+                                    required autocomplete="email" autofocus placeholder="Identifiant">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

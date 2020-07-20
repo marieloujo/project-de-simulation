@@ -36,4 +36,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function tracteurs_add()
+    {
+        return $this->belongsTo('App\Tracteurs');
+    }
+
+
+    public function tracteurs_louer()
+    {
+        return $this->belongsToMany('App\Tracteurs', 'louer', 'utilisateur_id', 'tracteur_id');
+    }
+
 }
