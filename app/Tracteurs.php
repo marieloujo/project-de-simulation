@@ -19,10 +19,20 @@ class Tracteurs extends Model
     ];
 
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at', 'updated_at',
+    ];
+
+
 
     public function users_add()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
 

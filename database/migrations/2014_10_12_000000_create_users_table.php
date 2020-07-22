@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+           // $table->unsignedBigInteger('localite_id');
             $table->string('name');
             $table->integer('age');
             $table->string('sexe');
@@ -29,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->string('carte_identite')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+
+            //$table->foreign('localite_id')->references('id')->on('localites');
         });
     }
 

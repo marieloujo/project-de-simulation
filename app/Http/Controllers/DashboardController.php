@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Tracteurs;
+use App\Modeles\Localite;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Larinfo;
+
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -39,7 +42,9 @@ class DashboardController extends Controller
 
         return view('app.tracteurs', 
                     compact('tracteurs'), 
-                    array('namePage'=>'tracteurs')
+                    array('namePage'=>'tracteurs',
+                        'localites' => Localite::all()
+                    )
         );
     }
 
@@ -49,7 +54,7 @@ class DashboardController extends Controller
     {
         //$clientIP = request()->ip();
         $add_trateur = Tracteurs::create([
-            'user_id' => 1,
+            'user_id' => Auth::id(),
             'type' => $request->type,
             'marque' => $request->marque,
             'modele' =>$request->modele,
