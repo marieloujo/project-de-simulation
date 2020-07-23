@@ -75,30 +75,29 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        if($data['acte_naissance'] != null) {
+        $file_acte_naissance_name = null;
+        $file_certificat_nationalite_name = null;
+        $file_carte_identite_name = null;
+
+        if($data['acte_naissance'] != null && $data['certificat_nationalite'] != null && $data['carte_identite'] != null) {
+            
             $file_acte_naissance_name = $data['name']
                         .'_acte_naissance.'
                         .$data['acte_naissance']->getClientOriginalExtension();
-
-            $acte_naissanceFile = $data['acte_naissance'];
-            $acte_naissanceFile->move(public_path().'/piece_fournir',$file_acte_naissance_name);
-        }
-
-        if($data['certificat_nationalite'] != null) {
             $file_certificat_nationalite_name = $data['name']
                         .'_certificat_nationalite.'
                         .$data['certificat_nationalite']->getClientOriginalExtension();
-
-            $certificat_nationaliteFile = $data['certificat_nationalite'];
-            $certificat_nationaliteFile->move(public_path().'/piece_fournir',
-                            $file_certificat_nationalite_name);
-        }
-
-
-        if($data['carte_identite'] != null) {
             $file_carte_identite_name = $data['name']
                         .'_carte_identite.'
                         .$data['carte_identite']->getClientOriginalExtension();
+
+
+            $acte_naissanceFile = $data['acte_naissance'];
+            $acte_naissanceFile->move(public_path().'/piece_fournir',$file_acte_naissance_name);
+        
+            $certificat_nationaliteFile = $data['certificat_nationalite'];
+            $certificat_nationaliteFile->move(public_path().'/piece_fournir',
+                            $file_certificat_nationalite_name);
 
             $carte_identiteFile = $data['carte_identite'];
             $carte_identiteFile->move(public_path().'/piece_fournir',$file_carte_identite_name);
@@ -116,22 +115,29 @@ class RegisterController extends Controller
             'telephone' => $data['telephone'],
             'lieu_naissance' => $data['lieu_naissance'],
 
-            /*    'acte_naissance' => $file_acte_naissance_name,
-            
+            'acte_naissance' => $file_acte_naissance_name,
             'certificat_nationalite' => $file_certificat_nationalite_name,
-            'carte_identite' => $file_carte_identite_name,*/
+            'carte_identite' => $file_carte_identite_name,
 
-            'id_localite' => $data['id_localite']
-
+            'id_localite' => $data['localite']
         ]);
+
+
     }
 
 
     protected function registered(Request $request, $user)
     {
-        $user->generateToken();
+        //dump($request->input()).die();
 
-    return response()->json(['data' => $user->toArray()], 201);
+        if($request->input('hidden') != null) {
+            return null;
+        } else {
+
+            $user->generateToken();
+
+            return response()->json($user->toArray(), 201);
+        }
     }
 
     

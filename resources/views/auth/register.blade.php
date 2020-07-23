@@ -46,6 +46,8 @@
 
                         @csrf
 
+                        <input type="hidden" name="hidden" value="web_registration">
+
                         <div class="wizard-header">
                             <h3 class="wizard-title comfortaa">
                                Création de compte
@@ -65,8 +67,6 @@
                         <div class="tab-content">
 
                             <div class="tab-pane" id="about">
-
-                                <h4 class="info-text">  </h4>
 
                                 <div class="row">
 
@@ -227,6 +227,26 @@
                                             </div>
                                         </div>
 
+                                    </div>
+
+                                    <div class="row mx-auto">
+                                        <div class="col-sm-11">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">place</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Localite <small>(obligatoire)</small></label>
+
+                                                    <select class="form-control selectpicker" name="localite">
+                                                        @foreach ($localites as $localite)
+                                                            <option value="{{$localite->id}}">{{$localite->libelle}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>

@@ -16,20 +16,19 @@
 
         
         <button type="submit" class="btn btn-primary pull-right mb-5 text-capitalize" 
-            data-toggle="modal" data-target="#modal-add">Enregistrer un véhicules</button>
+            data-toggle="modal" data-target="#modal-add">Enregistrer un tracteur</button>
 
 
         <div class="card card-plain">
 
             <div class="card-header card-header-primary">
-                <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                <p class="card-category"> Here is a subtitle for this table</p>
+                <h4 class="card-title mt-0"> Liste complète de vos tracteurs</h4>
             </div>
 
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table id="datatables" class="table table-hover">
 
                         <thead class="">
                             <th>ID</th>
@@ -141,17 +140,17 @@
                    
                         <div class="form-group mb-3 mt-3">
                             <label for="titre" class="bmd-label-floating">Type de tracteur</label>
-                            <input type="text" class="form-control" name="type" id="type" required="true">
+                            <input type="text" class="form-control" name="type" id="type-add" required="true">
                         </div>
 
                         <div class="form-group mb-3 mt-3">
                             <label for="titre" class="bmd-label-floating">Modèle</label>
-                            <input type="text" class="form-control" name="modele" id="modele" required="true">
+                            <input type="text" class="form-control" name="modele" id="modele-add" required="true">
                         </div>
 
                         <div class="form-group mb-3 mt-3">
                             <label for="titre" class="bmd-label-floating">Marque</label>
-                            <input type="text" class="form-control" name="marque" id="marque" required="true">
+                            <input type="text" class="form-control" name="marque" id="marque-add" required="true">
                         </div>
 
                     </div>

@@ -255,3 +255,23 @@
 
     });
   </script>
+
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#datatables').DataTable({
+      "language": {"url": "{{asset('/commons/French.json')}}"},
+     // "pagingType": "full_numbers",
+      "lengthMenu": [
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"]
+      ],
+      responsive: true
+    });
+
+    var table = $('#datatable').DataTable();
+
+  });
+</script>

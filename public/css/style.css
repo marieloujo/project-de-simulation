@@ -20,3 +20,12 @@ body {
 }
 
 
+.dataTables_filter, .pagination {
+    float: right !important;
+}
+
+.dataTables_empty{
+    text-align: center !important;
+}
+
+

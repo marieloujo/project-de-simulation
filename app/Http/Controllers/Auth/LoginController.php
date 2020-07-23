@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -38,6 +40,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
     
 
     public function login(Request $request)
@@ -45,15 +48,33 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         if ($this->attemptLogin($request)) {
-            $user = $this->guard()->user();
-            $user->generateToken();
 
-            return response()->json([
-                'data' => $user->toArray(),
-            ]);
+            if($request->input('hidden') != null) {
+
+                return $request->wantsJson()
+                    ? new Response('', 201)
+                    : redirect($this->redirectPath());
+
+            } else {
+
+                $user = $this->guard()->user();
+                $user->generateToken();
+
+                return response()->json([
+                    'data' => $user->toArray(),
+                ]);
+                
+            }
         }
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/login');
     }
 
 }

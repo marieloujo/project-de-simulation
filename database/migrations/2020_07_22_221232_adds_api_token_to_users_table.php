@@ -14,7 +14,10 @@ class AddsApiTokenToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_localite');
             $table->string('api_token', 60)->unique()->nullable();
+
+            $table->foreign('id_localite')->references('id')->on('localites');
         });
     }
 
